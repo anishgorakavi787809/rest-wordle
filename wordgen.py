@@ -2,7 +2,7 @@ from datetime import *
 import requests
 import json
 from random_word import RandomWords
-from str2int import str2int
+
 
 class worldle_logic:
     def __init__(self,json_file:str):
@@ -23,27 +23,12 @@ class worldle_logic:
           list_of_words.append(word_data.lower())
           counter += 1 
 
-        year = 0
-        month = 0
-        day = 0
-        date_list = str2int(str(date.today()))
-
-        print(date_list)
-        counter = 1
-        for l in date_list:
-            if counter == 1:
-                year = l
-            if counter == 2:
-                month = abs(int(l))
-            else:
-                day = abs(int(l))
-            counter += 1
-            
+      
         file = open(self.json_file,"w")
         constructed = {
-            "year": year,
-            "month":month,
-            "day":day,
+            "year": date.today().year,
+            "month":date.today().month,
+            "day":date.today().day,
             "words":list_of_words
         }
         json.dump(constructed,file)
@@ -58,17 +43,82 @@ class worldle_logic:
             today_date = date(date.today().year,date.today().month,date.today().day)
             diff = today_date - file_date
             return data["words"][diff.days]
-    
+          
     def letter_find(self, user_input:str):
+      
         word_of_day = self.get_word_day()
         one = word_of_day[0]
         two = word_of_day[1]
         three = word_of_day[2]
         four = word_of_day[3]
         five = word_of_day[4]
-        yellow = []
-        green = []
-        gray = []
-        
-        for index in user_input:
-            if index == one:
+        yellow = {}
+        green = {}
+        gray = {}
+        vars = [False,False,False,False,False]
+        char_index = 1
+        for index in user_input :
+
+            if index == one and not vars[0]:
+              if char_index == 1:
+                  green[f"char {char_index}"] = index
+                  char_index += 1
+                  vars[0] = True
+                  continue
+              else:
+                  yellow[f"char {char_index}"] = index
+                  char_index += 1
+                  continue
+
+            if index == two and not vars[1]:
+                if char_index == 2:
+                      green[f"char {char_index}"] = index
+                      char_index += 1
+                      vars[1] = True
+                      continue
+                else:
+                    yellow[f"char {char_index}"] = index
+                    char_index += 1
+                    continue
+
+            if index == three and not vars[2]:
+                if char_index == 3:
+                      green[f"char {char_index}"] = index
+                      char_index += 1
+                      vars[2] = True
+                      continue
+                else:
+                    yellow[f"char {char_index}"] = index
+                    char_index += 1
+                    continue
+
+            if index == four and not vars[3]:
+                if char_index == 4:
+                      green[f"char {char_index}"] = index
+                      char_index += 1
+                      vars[3] = True
+                      continue
+                else:
+                    yellow[f"char {char_index}"] = index
+                    char_index += 1
+                    continue
+            
+            if index == five and not vars[4]:
+                if char_index == 5:
+                      green[f"char {char_index}"] = index
+                      char_index += 1
+                      vars[0] = True
+                      continue
+                else:
+                    yellow[f"char {char_index}"] = index
+                    char_index += 1
+                    continue
+            gray[f"char {char_index}"] = index
+            char_index += 1
+            continue
+        constructed = {
+        "green":green,
+        "yellow":yellow,
+        "gray":gray
+       }
+        return constructed
