@@ -1,4 +1,3 @@
-import imp
-from flask import *
-from flask_restful import *
+x = "odial"
 
+print(len(x))
