@@ -1,3 +1,4 @@
+
 from datetime import *
 import requests
 import json
@@ -57,6 +58,10 @@ class worldle_logic:
         gray = {}
         vars = [False,False,False,False,False]
         char_index = 1
+        with open("allowed-words.json") as file:
+            data = json.load(file)
+            if not user_input in data["words"]:
+                return "Error: invalid word in wordle dictionary"
         for index in user_input :
 
             if index == one and not vars[0]:
