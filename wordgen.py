@@ -45,7 +45,7 @@ class worldle_logic:
             diff = today_date - file_date
             return data["words"][diff.days]
           
-    def letter_find(self, user_input:str):
+    def letter_find(self, user_input:str) -> dict:
       
         word_of_day = self.get_word_day()
         one = word_of_day[0]
