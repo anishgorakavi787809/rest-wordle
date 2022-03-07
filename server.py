@@ -47,7 +47,7 @@ class Guess(Resource):
                     word_dex = logic.letter_find(word)
                     try:
                         word_dex["error"]
-                        return word_dex["error"]
+                        return word_dex
                     except:
                         word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
@@ -67,7 +67,7 @@ class Guess(Resource):
                     word_dex = logic.letter_find(word)
                     try:
                         word_dex["error"]
-                        return word_dex["error"]
+                        return word_dex
                     except:
                         word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
@@ -88,7 +88,7 @@ class Guess(Resource):
                     word_dex = logic.letter_find(word)
                     try:
                         word_dex["error"]
-                        return word_dex["error"]
+                        return word_dex
                     except:
                         word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
@@ -110,7 +110,7 @@ class Guess(Resource):
                     word_dex = logic.letter_find(word)
                     try:
                         word_dex["error"]
-                        return word_dex["error"]
+                        return word_dex
                     except:
                         word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
@@ -131,7 +131,7 @@ class Guess(Resource):
                     word_dex = logic.letter_find(word)
                     try:
                         word_dex["error"]
-                        return word_dex["error"]
+                        return word_dex
                     except:
                         word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
