@@ -4,7 +4,6 @@ import requests
 import json
 from random_word import RandomWords
 
-
 class worldle_logic:
     def __init__(self,json_file:str):
         self.json_file = json_file
@@ -12,6 +11,9 @@ class worldle_logic:
     def generate_words_json(self,count_day:int) -> str:
         list_of_words = []
         counter = 1
+        fileman = open("allowed-words.json")
+        fileman = json.load(fileman)
+
         r = RandomWords()
         while counter <= count_day:
           word_data = r.get_random_word(minLength=5, maxLength=5)
@@ -19,7 +21,9 @@ class worldle_logic:
               continue
           if word_data.isspace():
               continue
-          
+          if not word_data in fileman["words"]:
+              continue
+
           print(word_data.lower())
           list_of_words.append(word_data.lower())
           counter += 1 

@@ -52,15 +52,15 @@ class Guess(Resource):
                         word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
                             print(word_dex)
-                            cur.execute(f"update wordle set guess5 = {word_dex} where username='{uname}'")
+                            cur.execute(f"update wordle set guess5 = '{word_dex}' where username='{uname}'")
                             connecter.commit()
-                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}")
+                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
                             return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
                         print(word_dex)
                         cur.execute(f"""update wordle set guess1 = '{word_dex}' where username='{uname}'""")
                         connecter.commit()
-                        cur.execute(f"update wordle set guesses = 1 where username = '{uname}")
+                        cur.execute(f"update wordle set guesses = 1 where username = '{uname}'")
                         connecter.commit()
                         return {"result":word_dex, "attempts":"1/5"}
                 case 1:
@@ -69,18 +69,19 @@ class Guess(Resource):
                         word_dex["error"]
                         return word_dex["error"]
                     except:
+                        word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
                             print(word_dex)
-                            cur.execute(f"update wordle set guess5 = {word_dex} where username='{uname}'")
+                            cur.execute(f"update wordle set guess5 = '{word_dex}' where username='{uname}'")
                             connecter.commit()
-                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}")
+                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
                             return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
 
                         print(word_dex)
-                        cur.execute(f"update wordle set guess2 = {word_dex} where username='{uname}'")
+                        cur.execute(f"update wordle set guess2 = '{word_dex}' where username='{uname}'")
                         connecter.commit()
-                        cur.execute(f"update wordle set guesses = 2 where username = '{uname}")
+                        cur.execute(f"update wordle set guesses = 2 where username = '{uname}'")
                         connecter.commit()
                         return {"result":word_dex, "attempts":"2/5"}
                 case 2:
@@ -89,18 +90,19 @@ class Guess(Resource):
                         word_dex["error"]
                         return word_dex["error"]
                     except:
+                        word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
                             print(word_dex)
-                            cur.execute(f"update wordle set guess5 = {word_dex} where username='{uname}'")
+                            cur.execute(f"update wordle set guess5 = '{word_dex}' where username='{uname}'")
                             connecter.commit()
-                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}")
+                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
                             return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
 
                         print(word_dex)
-                        cur.execute(f"update wordle set guess3 = {word_dex} where username='{uname}'")
+                        cur.execute(f"update wordle set guess3 = '{word_dex}' where username='{uname}'")
                         connecter.commit()
-                        cur.execute(f"update wordle set guesses = 3 where username = '{uname}")
+                        cur.execute(f"update wordle set guesses = 3 where username = '{uname}'")
                         connecter.commit()
                         return {"result":word_dex, "attempts":"3/5"}
 
@@ -110,18 +112,19 @@ class Guess(Resource):
                         word_dex["error"]
                         return word_dex["error"]
                     except:
+                        word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
                             print(word_dex)
-                            cur.execute(f"update wordle set guess5 = {word_dex} where username='{uname}'")
+                            cur.execute(f"update wordle set guess5 = '{word_dex}' where username='{uname}'")
                             connecter.commit()
-                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}")
+                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
                             return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
 
                         print(word_dex)
-                        cur.execute(f"update wordle set guess4 = {word_dex} where username='{uname}'")
+                        cur.execute(f"update wordle set guess4 = '{word_dex}' where username='{uname}'")
                         connecter.commit()
-                        cur.execute(f"update wordle set guesses = 4 where username = '{uname}")
+                        cur.execute(f"update wordle set guesses = 4 where username = '{uname}'")
                         connecter.commit()
                         return {"result":word_dex, "attempts":"4/5"}
                 case 4:
@@ -130,17 +133,18 @@ class Guess(Resource):
                         word_dex["error"]
                         return word_dex["error"]
                     except:
+                        word_dex = str(word_dex).replace("'",'"')
                         if word == logic.get_word_day():
                             print(word_dex)
-                            cur.execute(f"update wordle set guess5 = {word_dex} where username='{uname}'")
+                            cur.execute(f"update wordle set guess5 = '{word_dex}' where username='{uname}'")
                             connecter.commit()
-                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}")
+                            cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
                             return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
                         print(word_dex)
-                        cur.execute(f"update wordle set guess5 = {word_dex} where username='{uname}'")
+                        cur.execute(f"update wordle set guess5 = '{word_dex}' where username='{uname}'")
                         connecter.commit()
-                        cur.execute(f"update wordle set guesses = 5 where username = '{uname}")
+                        cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                         connecter.commit()
                         return {"result":word_dex, "attempts":"5/5", "word of the day":logic.get_word_day()}
                 case 5:
