@@ -140,7 +140,7 @@ class Guess(Resource):
                             connecter.commit()
                             cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
-                            return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
+                            return {"success":f"You guessed the correct word which is {logic.get_word_day()}"}
                         print(word_dex)
                         cur.execute(f"update wordle set guess5 = '{word_dex}' where username='{uname}'")
                         connecter.commit()
@@ -148,7 +148,7 @@ class Guess(Resource):
                         connecter.commit()
                         return {"result":word_dex, "attempts":"5/5", "word of the day":logic.get_word_day()}
                 case 5:
-                    return {"error":"you used all 5 attempts", "word of the day":logic.get_word_day()}
+                    return {"error":"you used all 5 attempts or you already gueesed one correct withen 5 attempts", "word of the day":logic.get_word_day()}
 api.add_resource(TestLogin,"/test_login")
 api.add_resource(SignUp,"/signup")
 api.add_resource(Guess,"/word/<string:word>")
