@@ -21,7 +21,7 @@ class worldle_logic:
               continue
           if word_data.isspace():
               continue
-          if not word_data in fileman["words"]:
+          if not word_data.lower() in fileman["words"]:
               continue
 
           print(word_data.lower())
@@ -125,6 +125,7 @@ class worldle_logic:
             gray[f"char {char_index}"] = index
             char_index += 1
             continue
+        
         constructed = {
         "green":green,
         "yellow":yellow,
