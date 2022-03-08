@@ -159,5 +159,7 @@ def index():
     /test_login - test if account is in database
     /signup - adds account into database
     /word/<randomword> - actuall wordle logic! replace '<ransomword>' with whatever word that you want!
+    
+    YOU ALWAYS HAVE TO MAKE SURE TO GO TO AUTHRIZATION IN POSTMAN AND CLICK BASIC AUTH TO TYPE IN CREDENTIALS!!!!!
     """
 app.run(host="0.0.0.0",port=80)
