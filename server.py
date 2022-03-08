@@ -56,7 +56,7 @@ class Guess(Resource):
                             connecter.commit()
                             cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
-                            return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
+                            return {"success":f"You guessed the correct word which is {logic.get_word_day()}"}
                         print(word_dex)
                         cur.execute(f"""update wordle set guess1 = '{word_dex}' where username='{uname}'""")
                         connecter.commit()
@@ -76,7 +76,7 @@ class Guess(Resource):
                             connecter.commit()
                             cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
-                            return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
+                            return {"success":f"You guessed the correct word which is {logic.get_word_day()}"}
 
                         print(word_dex)
                         cur.execute(f"update wordle set guess2 = '{word_dex}' where username='{uname}'")
@@ -97,7 +97,7 @@ class Guess(Resource):
                             connecter.commit()
                             cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
-                            return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
+                            return {"success":f"You guessed the correct word which is {logic.get_word_day()}"}
 
                         print(word_dex)
                         cur.execute(f"update wordle set guess3 = '{word_dex}' where username='{uname}'")
@@ -119,7 +119,7 @@ class Guess(Resource):
                             connecter.commit()
                             cur.execute(f"update wordle set guesses = 5 where username = '{uname}'")
                             connecter.commit()
-                            return {"success":f"You guessed the correct word which is {logic.get_word_day}"}
+                            return {"success":f"You guessed the correct word which is {logic.get_word_day()}"}
 
                         print(word_dex)
                         cur.execute(f"update wordle set guess4 = '{word_dex}' where username='{uname}'")
@@ -152,4 +152,12 @@ class Guess(Resource):
 api.add_resource(TestLogin,"/test_login")
 api.add_resource(SignUp,"/signup")
 api.add_resource(Guess,"/word/<string:word>")
+
+@app.route("/")
+def index():
+    return """
+    /test_login - test if account is in database
+    /signup - adds account into database
+    /word/<randomword> - actuall wordle logic! replace '<ransomword>' with whatever word that you want!
+    """
 app.run(host="0.0.0.0",port=80)
