@@ -44,7 +44,7 @@ and put in the username and password
 
 then in the url, type in: localhost/signup and it will put the account you typed into the database
 
-In url type in localhost/wordle/<the word you choose> to play the REST api version of wordle.
+In url type in localhost/wordle/<the  bvword you choose> to play the REST api version of wordle.
 
 Now, if you want, put my code in a aws server so, everyone can have the api to build apps with.
 
