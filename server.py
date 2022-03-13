@@ -13,6 +13,7 @@ app = Flask(__name__)
 api = Api(app)
 logic = worldle_logic("words.json")
 def logIn(username,password):
+    username = username.replace("'","")
     cur.execute(f"select password from login where username='{username}'")
     try:
         vary = check_password_hash(cur.fetchone()[0],password)
@@ -25,7 +26,7 @@ class TestLogin(Resource):
         var = logIn(request.authorization["username"],request.authorization["password"])
         print(var)
         if not var :
-            return {"error":"wrong username or password"}
+            return {"error":"wrong username or password"},403
         else:
             return {"success":"Correct username and password"}
 
@@ -43,7 +44,7 @@ class Guess(Resource):
     def get(self,word):
         var = logIn(request.authorization["username"],request.authorization["password"])
         if not var :
-            return {"error":"wrong username or password"}
+            return {"error":"wrong username or password"},403
         else:
             uname = request.authorization["username"]
             cur.execute(f"select guesses from wordle where username='{uname}'")
